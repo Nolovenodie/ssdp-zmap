@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ $# -eq 0 ];then
+echo "-----UDP放大扫描脚本-----"
+echo "[扫描SSDP列表:] $0 1"
+echo "[扫描LDAP列表:] $0 2"
+echo "-----UDP放大扫描脚本-----"
+exit
+fi
+if [ $1 -eq 1 ]; then
+echo "-----开始为您扫描SSDP列表-----"
+screen -S scan rm -f scan-log.txt;rm -f ssdpscan.txt;rm -f ssdpamp.txt;rm -f ssdp.txt;zmap -M udp -p 1900 -w cn.txt -B 100M --probe-args=file:upnp_1900.pkt -o ssdpscan.txt;php ssdpfilter.php ssdpscan.txt ssdpamp.txt 10 1000;awk '$2>260{print $1}' ssdpamp.txt | sort -n | uniq | sort -R > ssdp.txt;
+exit
+fi
+if [ $1 -eq 2 ]; then
+echo "-----开始为您扫描LDAP列表-----"
+screen -S scan rm -f scan-log.txt;rm -f ldapscan.txt;rm -f ldapamp.txt;rm -f ldap.txt;zmap -M udp -p 389 -B 100M --probe-args=file:ldap_389.pkt -o ldapscan.txt;php ldapchecker.php ldapscan.txt ldapamp.txt 10 1000;awk '$2>2700{print $1}' ldapamp.txt | sort -n | uniq | sort -R > ldap.txt;
+exit
+fi
