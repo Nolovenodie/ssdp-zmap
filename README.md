@@ -1,4 +1,5 @@
 # SSDP
+'''
 yum -y install gcc+ gcc-c++
 yum -y install gcc libcap libpcap libpcap-devel screen php dstat cmake gmp gmp-devel gengetopt byacc flex git json-c cpan vnstat zmap
 yum install cmake gmp-devel gengetopt libpcap-devel flex byacc json-c-devel libunistring-devel
@@ -23,3 +24,4 @@ make install
 200处理个数  1000线程
 全自动：screen ./scan 1
 自动过滤跟扫描，到时候表完成过后是ssdp.txt
+'''
